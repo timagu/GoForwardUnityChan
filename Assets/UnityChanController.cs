@@ -38,10 +38,23 @@ public class UnityChanController : MonoBehaviour
         this.animator.SetFloat("Horizontal", 1);
 
         // 着地しているかどうかを調べる
+        /*bool isGround;
+          if (transform.position.y > this.groundLevel){
+            isGround = false;ジャンプ
+          }else{
+            isGround = ture;着地
+          }*/
         bool isGround = (transform.position.y > this.groundLevel) ? false : true;
         this.animator.SetBool("isGround", isGround);
 
+
+
         // ジャンプ状態のときにはボリュームを0にする
+        /*if (isGround){
+            GetComponent<AudioSource>().volume = 1;
+          }else{
+            GetComponent<AudioSource>().volume = 0;
+          }*/
         GetComponent<AudioSource>().volume = (isGround) ? 1 : 0;
 
         // 着地状態でクリックされた場合
